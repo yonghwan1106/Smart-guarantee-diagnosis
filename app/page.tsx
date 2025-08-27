@@ -11,10 +11,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen gradient-bg relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-blue-400/20 to-cyan-400/20 rounded-full blur-3xl"></div>
+      {/* Background Elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500 opacity-10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500 opacity-10 rounded-full blur-3xl"></div>
       
       <div className="relative container mx-auto px-4 py-8">
         {/* Navigation */}
