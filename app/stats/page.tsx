@@ -22,9 +22,6 @@ export default function StatsPage() {
       .slice(0, 5)
   }
 
-  const getTotalApplications = () => {
-    return stats.approvalRateByIndustry.reduce((sum, industry) => sum + industry.count, 0)
-  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50">

@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Progress } from '@/components/ui/progress'
 import { Badge } from '@/components/ui/badge'
 import { generateDiagnosisResult } from '@/lib/calculate'
-import { formatCurrency, getRiskLevelColor, getApprovalProbabilityColor, getProgressBarColor } from '@/lib/utils'
+import { formatCurrency, getRiskLevelColor, getApprovalProbabilityColor } from '@/lib/utils'
 import industriesData from '@/data/industries.json'
 import recommendationsData from '@/data/recommendations.json'
 
@@ -18,7 +18,15 @@ interface DiagnosisResult {
   guaranteeFeeRate: number
   riskLevel: string
   recommendationType: 'high_approval' | 'medium_approval' | 'low_approval'
-  input: any
+  input: {
+    industry: number
+    revenue: number
+    businessPeriod: number
+    creditRating: number
+    existingDebt: number
+    hasCollateral: boolean
+    requestedAmount: number
+  }
 }
 
 function ResultContent() {
@@ -242,11 +250,11 @@ function ResultContent() {
               </div>
             </div>
 
-            {recommendation.alternatives && (
+            {('alternatives' in recommendation) && recommendation.alternatives && (
               <div className="mt-6">
                 <h4 className="font-semibold mb-3">대안 금융상품</h4>
                 <div className="grid sm:grid-cols-2 gap-4">
-                  {recommendation.alternatives.map((alt, index) => (
+                  {(recommendation as { alternatives: Array<{name: string, description: string, rate: string, maxAmount: string}> }).alternatives.map((alt, index) => (
                     <div key={index} className="p-4 border rounded-lg">
                       <h5 className="font-medium mb-1">{alt.name}</h5>
                       <p className="text-sm text-gray-600 mb-2">{alt.description}</p>

@@ -1,4 +1,14 @@
-export const calculateApprovalProbability = (input) => {
+interface DiagnosisInput {
+  industry: number;
+  revenue: number;
+  businessPeriod: number;
+  creditRating: number;
+  existingDebt: number;
+  hasCollateral: boolean;
+  requestedAmount: number;
+}
+
+export const calculateApprovalProbability = (input: DiagnosisInput): number => {
   const weights = {
     creditRating: 0.3,    // 신용등급 (30%)
     revenue: 0.25,        // 매출액 (25%)  
@@ -25,7 +35,7 @@ export const calculateApprovalProbability = (input) => {
   return Math.round(totalScore);
 }
 
-export const calculateGuaranteeLimit = (input, approvalProbability) => {
+export const calculateGuaranteeLimit = (input: DiagnosisInput, approvalProbability: number): number => {
   const baseLimit = input.revenue * 12 * 0.5; // 연매출의 50%
   const creditMultiplier = (11 - input.creditRating) * 0.1; // 신용등급별 배수
   const probabilityMultiplier = approvalProbability / 100;
@@ -36,7 +46,7 @@ export const calculateGuaranteeLimit = (input, approvalProbability) => {
   return Math.min(Math.round(estimatedLimit / 1000000) * 1000000, 500000000);
 }
 
-export const calculateGuaranteeFeeRate = (input, approvalProbability) => {
+export const calculateGuaranteeFeeRate = (input: DiagnosisInput): number => {
   const baseRate = 1.5; // 기본 보증료율 1.5%
   const creditAdjustment = (input.creditRating - 1) * 0.1; // 신용등급별 조정
   const industryRiskAdjustment = getRiskAdjustment(input.industry);
@@ -47,7 +57,7 @@ export const calculateGuaranteeFeeRate = (input, approvalProbability) => {
   return Math.round(finalRate * 10) / 10; // 소수점 첫째자리까지
 }
 
-export const getRiskLevel = (approvalProbability) => {
+export const getRiskLevel = (approvalProbability: number): string => {
   if (approvalProbability >= 85) return 'A';
   if (approvalProbability >= 75) return 'B';
   if (approvalProbability >= 60) return 'C';
@@ -55,14 +65,14 @@ export const getRiskLevel = (approvalProbability) => {
   return 'E';
 }
 
-export const getRecommendationType = (approvalProbability) => {
+export const getRecommendationType = (approvalProbability: number): 'high_approval' | 'medium_approval' | 'low_approval' => {
   if (approvalProbability >= 75) return 'high_approval';
   if (approvalProbability >= 50) return 'medium_approval';
   return 'low_approval';
 }
 
-const getRiskAdjustment = (industryId) => {
-  const riskAdjustments = {
+const getRiskAdjustment = (industryId: number): number => {
+  const riskAdjustments: Record<number, number> = {
     1: 0.1,   // 음식업
     2: 0.2,   // 소매업
     3: -0.1,  // 제조업
@@ -83,10 +93,10 @@ const getRiskAdjustment = (industryId) => {
   return riskAdjustments[industryId] || 0.2;
 }
 
-export const generateDiagnosisResult = (input) => {
+export const generateDiagnosisResult = (input: DiagnosisInput) => {
   const approvalProbability = calculateApprovalProbability(input);
   const guaranteeLimit = calculateGuaranteeLimit(input, approvalProbability);
-  const guaranteeFeeRate = calculateGuaranteeFeeRate(input, approvalProbability);
+  const guaranteeFeeRate = calculateGuaranteeFeeRate(input);
   const riskLevel = getRiskLevel(approvalProbability);
   const recommendationType = getRecommendationType(approvalProbability);
   
