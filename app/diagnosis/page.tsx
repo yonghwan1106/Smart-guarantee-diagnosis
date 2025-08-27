@@ -11,6 +11,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Slider } from '@/components/ui/slider'
 import { Progress } from '@/components/ui/progress'
 import { Badge } from '@/components/ui/badge'
+import { ThemeToggle } from '@/components/theme-toggle'
+import { ArrowLeft, ArrowRight, Shield, Sparkles } from 'lucide-react'
 import industriesData from '@/data/industries.json'
 
 interface DiagnosisInput {
@@ -87,14 +89,14 @@ export default function DiagnosisPage() {
     switch (currentStep) {
       case 1:
         return (
-          <Card>
+          <Card className="glass-effect border border-white/20 card-hover">
             <CardHeader>
-              <CardTitle>업종을 선택해주세요</CardTitle>
-              <CardDescription>
+              <CardTitle className="text-2xl text-white">업종을 선택해주세요</CardTitle>
+              <CardDescription className="text-white/80 text-base leading-relaxed">
                 사업하고 계신 업종을 선택하시면, 업종별 특성을 반영한 정확한 분석이 가능합니다.
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4">
+            <CardContent className="space-y-6">
               <Select 
                 value={formData.industry?.toString() || ""} 
                 onValueChange={(value) => setFormData({...formData, industry: parseInt(value)})}
@@ -357,56 +359,77 @@ export default function DiagnosisPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50">
-      <div className="container mx-auto px-4 py-8 max-w-2xl">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <Link href="/" className="text-blue-600 hover:text-blue-700 text-sm font-medium">
-            ← 홈으로 돌아가기
+    <div className="min-h-screen gradient-bg relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-purple-400/10 to-pink-400/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-blue-400/10 to-cyan-400/10 rounded-full blur-3xl"></div>
+      
+      <div className="relative container mx-auto px-4 py-8 max-w-3xl">
+        {/* Navigation */}
+        <nav className="flex justify-between items-center mb-12">
+          <Link href="/" className="flex items-center space-x-2 text-white hover:text-white/80 transition-colors">
+            <ArrowLeft className="w-5 h-5" />
+            <Shield className="w-6 h-6" />
+            <span className="font-semibold">스마트 보증진단</span>
           </Link>
-          <h1 className="text-3xl font-bold text-gray-900 mt-4 mb-2">
+          <ThemeToggle />
+        </nav>
+
+        {/* Header */}
+        <div className="text-center mb-12 animate-fade-in">
+          <Badge variant="secondary" className="mb-4 glass-effect text-white border-white/20">
+            <Sparkles className="w-4 h-4 mr-2" />
+            AI 기반 진단
+          </Badge>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             보증 가능성 진단
           </h1>
-          <p className="text-gray-600">
-            7단계 간단한 정보만 입력하시면 3분 내에 결과를 확인하실 수 있습니다.
+          <p className="text-white/80 text-lg max-w-2xl mx-auto leading-relaxed">
+            7단계 간단한 정보만 입력하시면 <span className="text-gradient font-semibold">3분 내에</span> 
+            AI가 분석한 결과를 확인하실 수 있습니다.
           </p>
         </div>
 
         {/* Progress */}
-        <div className="mb-8">
-          <div className="flex justify-between text-sm text-gray-600 mb-2">
-            <span>진행률</span>
-            <span>{currentStep} / {totalSteps}</span>
+        <div className="mb-12 animate-slide-up">
+          <div className="glass-effect border border-white/20 rounded-2xl p-6">
+            <div className="flex justify-between text-sm text-white/80 mb-4">
+              <span className="font-medium">진행률</span>
+              <span className="font-bold">{currentStep} / {totalSteps}</span>
+            </div>
+            <Progress value={progress} className="h-3 mb-4" />
+            <div className="text-center">
+              <Badge variant="secondary" className="glass-effect text-white border-white/20">
+                {currentStep}단계
+              </Badge>
+            </div>
           </div>
-          <Progress value={progress} className="h-2" />
         </div>
 
         {/* Step Content */}
-        <div className="mb-8">
-          <div className="text-center mb-4">
-            <Badge variant="outline" className="mb-2">
-              {currentStep}단계
-            </Badge>
-          </div>
+        <div className="mb-12 animate-bounce-in">
           {getStepContent()}
         </div>
 
         {/* Navigation */}
-        <div className="flex justify-between">
+        <div className="flex justify-between items-center animate-slide-up">
           <Button
             variant="outline"
             onClick={handlePrevious}
             disabled={currentStep === 1}
-            className="px-8"
+            className="glass-effect border-white/30 text-white hover:bg-white/10 px-8 py-3 disabled:opacity-50 disabled:cursor-not-allowed"
           >
+            <ArrowLeft className="mr-2 w-4 h-4" />
             이전
           </Button>
           <Button
             onClick={handleNext}
             disabled={!canProceed()}
-            className="px-8"
+            className="glass-effect border-white/20 hover:bg-white/20 text-white px-8 py-3 font-semibold group transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
           >
             {currentStep === totalSteps ? '결과 확인' : '다음'}
+            <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>
 
