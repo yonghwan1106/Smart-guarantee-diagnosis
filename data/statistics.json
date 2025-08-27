@@ -1,0 +1,36 @@
+{
+  "totalDiagnosisToday": 1247,
+  "approvalRateByIndustry": [
+    { "industry": "음식업", "rate": 85, "count": 230 },
+    { "industry": "소매업", "rate": 78, "count": 189 },
+    { "industry": "제조업", "rate": 92, "count": 156 },
+    { "industry": "건설업", "rate": 68, "count": 143 },
+    { "industry": "서비스업", "rate": 82, "count": 198 },
+    { "industry": "도매업", "rate": 75, "count": 98 },
+    { "industry": "운수업", "rate": 71, "count": 87 },
+    { "industry": "숙박업", "rate": 73, "count": 65 },
+    { "industry": "교육서비스업", "rate": 88, "count": 112 },
+    { "industry": "의료업", "rate": 94, "count": 89 },
+    { "industry": "농업", "rate": 77, "count": 54 },
+    { "industry": "IT서비스업", "rate": 89, "count": 134 },
+    { "industry": "부동산업", "rate": 65, "count": 76 },
+    { "industry": "문화예술업", "rate": 70, "count": 43 },
+    { "industry": "금융보험업", "rate": 91, "count": 67 }
+  ],
+  "averageApprovalTime": "7.2일",
+  "mostRequestedAmount": "3000만원",
+  "totalApplicationsThisMonth": 34567,
+  "averageApprovalAmount": "2800만원",
+  "successRateByAmount": [
+    { "range": "1천만원 이하", "rate": 89, "count": 456 },
+    { "range": "1천만원~3천만원", "rate": 82, "count": 612 },
+    { "range": "3천만원~5천만원", "rate": 74, "count": 234 },
+    { "range": "5천만원~1억원", "rate": 65, "count": 123 },
+    { "range": "1억원 이상", "rate": 52, "count": 89 }
+  ],
+  "recentActivity": {
+    "lastHourDiagnosis": 47,
+    "peakHours": "오전 10시~12시",
+    "mostActiveDay": "화요일"
+  }
+}

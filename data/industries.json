@@ -1,0 +1,109 @@
+{
+  "industries": [
+    {
+      "id": 1,
+      "name": "음식업",
+      "avgApprovalRate": 85,
+      "riskLevel": "B",
+      "description": "식당, 카페, 주점 등"
+    },
+    {
+      "id": 2,
+      "name": "소매업",
+      "avgApprovalRate": 78,
+      "riskLevel": "C",
+      "description": "편의점, 마트, 의류매장 등"
+    },
+    {
+      "id": 3,
+      "name": "제조업",
+      "avgApprovalRate": 92,
+      "riskLevel": "A",
+      "description": "제품 생산, 가공업체 등"
+    },
+    {
+      "id": 4,
+      "name": "건설업",
+      "avgApprovalRate": 68,
+      "riskLevel": "D",
+      "description": "건축, 토목, 인테리어 등"
+    },
+    {
+      "id": 5,
+      "name": "서비스업",
+      "avgApprovalRate": 82,
+      "riskLevel": "B",
+      "description": "미용, 세탁, 수리업 등"
+    },
+    {
+      "id": 6,
+      "name": "도매업",
+      "avgApprovalRate": 75,
+      "riskLevel": "C",
+      "description": "상품 유통, 판매업 등"
+    },
+    {
+      "id": 7,
+      "name": "운수업",
+      "avgApprovalRate": 71,
+      "riskLevel": "C",
+      "description": "택배, 화물, 여객 운송 등"
+    },
+    {
+      "id": 8,
+      "name": "숙박업",
+      "avgApprovalRate": 73,
+      "riskLevel": "C",
+      "description": "호텔, 모텔, 펜션 등"
+    },
+    {
+      "id": 9,
+      "name": "교육서비스업",
+      "avgApprovalRate": 88,
+      "riskLevel": "A",
+      "description": "학원, 과외, 직업훈련 등"
+    },
+    {
+      "id": 10,
+      "name": "의료업",
+      "avgApprovalRate": 94,
+      "riskLevel": "A",
+      "description": "병원, 의원, 한의원 등"
+    },
+    {
+      "id": 11,
+      "name": "농업",
+      "avgApprovalRate": 77,
+      "riskLevel": "C",
+      "description": "작물 재배, 축산업 등"
+    },
+    {
+      "id": 12,
+      "name": "IT서비스업",
+      "avgApprovalRate": 89,
+      "riskLevel": "A",
+      "description": "소프트웨어 개발, IT컨설팅 등"
+    },
+    {
+      "id": 13,
+      "name": "부동산업",
+      "avgApprovalRate": 65,
+      "riskLevel": "D",
+      "description": "부동산 중개, 관리업 등"
+    },
+    {
+      "id": 14,
+      "name": "문화예술업",
+      "avgApprovalRate": 70,
+      "riskLevel": "C",
+      "description": "공연, 전시, 창작활동 등"
+    },
+    {
+      "id": 15,
+      "name": "금융보험업",
+      "avgApprovalRate": 91,
+      "riskLevel": "A",
+      "description": "보험대리점, 금융상담업 등"
+    }
+  ]
+}
