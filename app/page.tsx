@@ -26,16 +26,24 @@ export default function Home() {
         {/* Hero Section */}
         <header className="text-center mb-20 animate-fade-in">
           <div className="mb-12">
-            <Badge variant="secondary" className="mb-6 bg-blue-50 text-blue-600 border-blue-200 hover:bg-blue-100 transition-colors">
+            <Badge variant="secondary" className="mb-4 bg-blue-50 text-blue-600 border-blue-200 hover:bg-blue-100 transition-colors">
               <Zap className="w-4 h-4 mr-2" />
               신용보증재단 AI 서비스
             </Badge>
+            <div className="mb-6">
+              <Badge variant="outline" className="mb-2 bg-amber-50 text-amber-700 border-amber-200">
+                신용보증재단중앙회 특별업무제안 공모전 출품작
+              </Badge>
+            </div>
             <h1 className="text-6xl md:text-7xl font-bold text-gray-900 mb-6 animate-bounce-in">
               스마트 보증진단
             </h1>
-            <p className="text-xl md:text-2xl text-gray-700 mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
               <span className="text-blue-600 font-semibold">AI 기술</span>로 30초 만에 보증 가능성을 확인하고<br />
               <span className="font-semibold">맞춤형 개선방안</span>을 받아보세요
+            </p>
+            <p className="text-sm text-gray-500 mb-12 max-w-2xl mx-auto">
+              ※ 본 서비스는 시연을 위한 가상 데이터를 사용하고 있으며, 실제 보증심사와는 다를 수 있습니다.
             </p>
           </div>
           
