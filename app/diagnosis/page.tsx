@@ -11,7 +11,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Slider } from '@/components/ui/slider'
 import { Progress } from '@/components/ui/progress'
 import { Badge } from '@/components/ui/badge'
-import { ThemeToggle } from '@/components/theme-toggle'
 import { ArrowLeft, ArrowRight, Shield, Sparkles } from 'lucide-react'
 import industriesData from '@/data/industries.json'
 
@@ -89,10 +88,10 @@ export default function DiagnosisPage() {
     switch (currentStep) {
       case 1:
         return (
-          <Card className="glass-effect border border-white/20 card-hover">
+          <Card className="bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-shadow">
             <CardHeader>
-              <CardTitle className="text-2xl text-white">업종을 선택해주세요</CardTitle>
-              <CardDescription className="text-white/80 text-base leading-relaxed">
+              <CardTitle className="text-2xl text-gray-900">업종을 선택해주세요</CardTitle>
+              <CardDescription className="text-gray-600 text-base leading-relaxed">
                 사업하고 계신 업종을 선택하시면, 업종별 특성을 반영한 정확한 분석이 가능합니다.
               </CardDescription>
             </CardHeader>
@@ -132,14 +131,14 @@ export default function DiagnosisPage() {
         return (
           <Card>
             <CardHeader>
-              <CardTitle>월 평균 매출액을 입력해주세요</CardTitle>
-              <CardDescription>
+              <CardTitle className="text-gray-900">월 평균 매출액을 입력해주세요</CardTitle>
+              <CardDescription className="text-gray-600">
                 최근 6개월 평균 매출액을 기준으로 입력해주세요. 정확할수록 더 정밀한 분석이 가능합니다.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div>
-                <Label>월 평균 매출액: {formatCurrency(formData.revenue[0])}</Label>
+                <Label className="text-gray-700">월 평균 매출액: {formatCurrency(formData.revenue[0])}</Label>
                 <div className="mt-4">
                   <Slider
                     value={formData.revenue}
@@ -359,7 +358,7 @@ export default function DiagnosisPage() {
   }
 
   return (
-    <div className="min-h-screen gradient-bg relative overflow-hidden">
+    <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500 opacity-5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500 opacity-5 rounded-full blur-3xl"></div>
@@ -367,39 +366,38 @@ export default function DiagnosisPage() {
       <div className="relative container mx-auto px-4 py-8 max-w-3xl">
         {/* Navigation */}
         <nav className="flex justify-between items-center mb-12">
-          <Link href="/" className="flex items-center space-x-2 text-white hover:text-white/80 transition-colors">
+          <Link href="/" className="flex items-center space-x-2 text-gray-900 hover:text-gray-700 transition-colors">
             <ArrowLeft className="w-5 h-5" />
             <Shield className="w-6 h-6" />
             <span className="font-semibold">스마트 보증진단</span>
           </Link>
-          <ThemeToggle />
         </nav>
 
         {/* Header */}
         <div className="text-center mb-12 animate-fade-in">
-          <Badge variant="secondary" className="mb-4 glass-effect text-white border-white/20">
+          <Badge variant="secondary" className="mb-4 bg-blue-50 text-blue-600 border-blue-200">
             <Sparkles className="w-4 h-4 mr-2" />
             AI 기반 진단
           </Badge>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             보증 가능성 진단
           </h1>
-          <p className="text-white/80 text-lg max-w-2xl mx-auto leading-relaxed">
-            7단계 간단한 정보만 입력하시면 <span className="text-gradient font-semibold">3분 내에</span> 
+          <p className="text-gray-700 text-lg max-w-2xl mx-auto leading-relaxed">
+            7단계 간단한 정보만 입력하시면 <span className="text-blue-600 font-semibold">3분 내에</span> 
             AI가 분석한 결과를 확인하실 수 있습니다.
           </p>
         </div>
 
         {/* Progress */}
         <div className="mb-12 animate-slide-up">
-          <div className="glass-effect border border-white/20 rounded-2xl p-6">
-            <div className="flex justify-between text-sm text-white/80 mb-4">
+          <div className="bg-white border border-gray-200 shadow-lg rounded-2xl p-6">
+            <div className="flex justify-between text-sm text-gray-600 mb-4">
               <span className="font-medium">진행률</span>
               <span className="font-bold">{currentStep} / {totalSteps}</span>
             </div>
             <Progress value={progress} className="h-3 mb-4" />
             <div className="text-center">
-              <Badge variant="secondary" className="glass-effect text-white border-white/20">
+              <Badge variant="secondary" className="bg-blue-50 text-blue-600 border-blue-200">
                 {currentStep}단계
               </Badge>
             </div>
@@ -417,7 +415,7 @@ export default function DiagnosisPage() {
             variant="outline"
             onClick={handlePrevious}
             disabled={currentStep === 1}
-            className="glass-effect border-white/30 text-white hover:bg-white/10 px-8 py-3 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-3 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <ArrowLeft className="mr-2 w-4 h-4" />
             이전
@@ -425,7 +423,7 @@ export default function DiagnosisPage() {
           <Button
             onClick={handleNext}
             disabled={!canProceed()}
-            className="glass-effect border-white/20 hover:bg-white/20 text-white px-8 py-3 font-semibold group transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 font-semibold group transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
           >
             {currentStep === totalSteps ? '결과 확인' : '다음'}
             <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
