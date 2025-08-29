@@ -129,7 +129,7 @@ export default function DiagnosisPage() {
 
       case 2:
         return (
-          <Card>
+          <Card className="bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-shadow">
             <CardHeader>
               <CardTitle className="text-gray-900">월 평균 매출액을 입력해주세요</CardTitle>
               <CardDescription className="text-gray-600">
@@ -155,7 +155,7 @@ export default function DiagnosisPage() {
                 </div>
               </div>
               <div>
-                <Label htmlFor="revenueInput">직접 입력 (만원)</Label>
+                <Label htmlFor="revenueInput" className="text-gray-700">직접 입력 (만원)</Label>
                 <Input
                   id="revenueInput"
                   type="number"
@@ -171,10 +171,10 @@ export default function DiagnosisPage() {
 
       case 3:
         return (
-          <Card>
+          <Card className="bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-shadow">
             <CardHeader>
-              <CardTitle>사업 기간을 선택해주세요</CardTitle>
-              <CardDescription>
+              <CardTitle className="text-gray-900">사업 기간을 선택해주세요</CardTitle>
+              <CardDescription className="text-gray-600">
                 현재 업종으로 사업을 시작한 시점부터 계산해주세요.
               </CardDescription>
             </CardHeader>
@@ -203,10 +203,10 @@ export default function DiagnosisPage() {
 
       case 4:
         return (
-          <Card>
+          <Card className="bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-shadow">
             <CardHeader>
-              <CardTitle>신용등급을 선택해주세요</CardTitle>
-              <CardDescription>
+              <CardTitle className="text-gray-900">신용등급을 선택해주세요</CardTitle>
+              <CardDescription className="text-gray-600">
                 개인 또는 대표자의 신용등급을 선택해주세요. 정확하지 않다면 추정 등급을 선택하세요.
               </CardDescription>
             </CardHeader>
@@ -234,16 +234,16 @@ export default function DiagnosisPage() {
 
       case 5:
         return (
-          <Card>
+          <Card className="bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-shadow">
             <CardHeader>
-              <CardTitle>기존 대출금액을 입력해주세요</CardTitle>
-              <CardDescription>
+              <CardTitle className="text-gray-900">기존 대출금액을 입력해주세요</CardTitle>
+              <CardDescription className="text-gray-600">
                 현재 상환 중인 모든 대출(사업자대출, 개인대출 포함)의 총 잔액을 입력해주세요.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div>
-                <Label>기존 대출금액: {formatCurrency(formData.existingDebt[0])}</Label>
+                <Label className="text-gray-700">기존 대출금액: {formatCurrency(formData.existingDebt[0])}</Label>
                 <div className="mt-4">
                   <Slider
                     value={formData.existingDebt}
@@ -260,7 +260,7 @@ export default function DiagnosisPage() {
                 </div>
               </div>
               <div>
-                <Label htmlFor="debtInput">직접 입력 (만원)</Label>
+                <Label htmlFor="debtInput" className="text-gray-700">직접 입력 (만원)</Label>
                 <Input
                   id="debtInput"
                   type="number"
@@ -276,10 +276,10 @@ export default function DiagnosisPage() {
 
       case 6:
         return (
-          <Card>
+          <Card className="bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-shadow">
             <CardHeader>
-              <CardTitle>담보를 보유하고 계신가요?</CardTitle>
-              <CardDescription>
+              <CardTitle className="text-gray-900">담보를 보유하고 계신가요?</CardTitle>
+              <CardDescription className="text-gray-600">
                 부동산, 예금, 보험 등 담보로 제공 가능한 자산이 있으신지 선택해주세요.
               </CardDescription>
             </CardHeader>
@@ -312,16 +312,16 @@ export default function DiagnosisPage() {
 
       case 7:
         return (
-          <Card>
+          <Card className="bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-shadow">
             <CardHeader>
-              <CardTitle>보증 신청 희망금액을 입력해주세요</CardTitle>
-              <CardDescription>
+              <CardTitle className="text-gray-900">보증 신청 희망금액을 입력해주세요</CardTitle>
+              <CardDescription className="text-gray-600">
                 필요하신 자금 규모를 입력해주세요. 적정 금액을 신청하시면 승인 가능성이 높아집니다.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div>
-                <Label>신청 희망금액: {formatCurrency(formData.requestedAmount[0])}</Label>
+                <Label className="text-gray-700">신청 희망금액: {formatCurrency(formData.requestedAmount[0])}</Label>
                 <div className="mt-4">
                   <Slider
                     value={formData.requestedAmount}
@@ -338,7 +338,7 @@ export default function DiagnosisPage() {
                 </div>
               </div>
               <div>
-                <Label htmlFor="amountInput">직접 입력 (만원)</Label>
+                <Label htmlFor="amountInput" className="text-gray-700">직접 입력 (만원)</Label>
                 <Input
                   id="amountInput"
                   type="number"
