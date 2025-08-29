@@ -103,7 +103,7 @@ export default function DiagnosisPage() {
                 <SelectTrigger>
                   <SelectValue placeholder="업종을 선택하세요" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent side="bottom">
                   {industriesData.industries.map((industry) => (
                     <SelectItem key={industry.id} value={industry.id.toString()}>
                       <div className="flex justify-between items-center w-full">
